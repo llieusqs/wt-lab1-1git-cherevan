@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как я провела лето</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --soft-pink: #f7b6c8;
+            --soft-pink-light: #fde4ec;
+            --soft-yellow: #fce38a;
+            --soft-yellow-light: #fff6d6;
+            --cream: #fff8e7;
+            --deep-text: #5a4a52;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--deep-text);
+            background-color: var(--cream);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #b96b85;
+        }
+
+        /* Герой-секция */
+        .hero {
+            background: linear-gradient(rgba(247, 182, 200, 0.55), rgba(252, 227, 138, 0.55)),
+                        url('images/hero.jpg') center/cover no-repeat;
+            min-height: 90vh;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4.5rem);
+            color: #fff;
+            text-shadow: 2px 2px 14px rgba(185, 107, 133, 0.7);
+        }
+        .hero p {
+            font-size: clamp(1rem, 2.2vw, 1.4rem);
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.25);
+        }
+        .hero .btn-light {
+            background-color: #fff;
+            color: #b96b85;
+            border: none;
+            font-weight: 500;
+        }
+        .hero .btn-light:hover {
+            background-color: var(--soft-yellow);
+            color: #a2556f;
+        }
+
+        /* Фото профиля */
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--soft-pink);
+            box-shadow: 0 8px 24px rgba(247, 182, 200, 0.55);
+            margin-top: -90px;
+            background: #fff;
+        }
+
+        /* Карточки месяцев */
+        .month-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(247, 182, 200, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .month-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(247, 182, 200, 0.45);
+        }
+        .month-card img {
+            height: 240px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .month-card .card-body {
+            background: linear-gradient(180deg, #fff 0%, var(--soft-yellow-light) 100%);
+        }
+        .month-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(255, 255, 255, 0.92);
+            color: #b96b85;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 12px rgba(247, 182, 200, 0.4);
+        }
+        .img-wrap { position: relative; }
+        .month-card .card-title {
+            color: #a2556f;
+        }
+        .month-card .card-text {
+            color: #7a6a72;
+        }
+
+        /* Секция с фото */
+        .memory-section {
+            background: var(--soft-pink-light);
+        }
+        .memory-img {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(247, 182, 200, 0.4);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 4px solid #fff;
+        }
+
+        /* Цитата */
+        .quote-block {
+            background: var(--soft-yellow-light);
+            border-left: 5px solid var(--soft-pink);
+            padding: 24px 32px;
+            border-radius: 12px;
+            font-style: italic;
+            color: #7a5a66;
+            box-shadow: 0 6px 20px rgba(252, 227, 138, 0.4);
+        }
+
+        /* Футер */
+        footer {
+            background: linear-gradient(90deg, #f7b6c8, #fce38a);
+            color: #7a4a5c;
+        }
+        footer p { color: #7a4a5c; }
+
+        /* Заголовок секции */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--soft-pink), var(--soft-yellow));
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== ГЕРОЙ-СЕКЦИЯ ===== -->
+    <header class="hero" id="top">
+        <div class="container">
+            <h1 class="mb-3">Как я провела лето</h1>
+            <p class="mb-4">Три месяца и тысячи впечатлений. На этом сайте вы посмотрите много фото о том, как я провела лето.</p>
+            <a href="#summer" class="btn btn-light btn-lg rounded-pill px-4">
+                <i class="bi bi-arrow-down"></i> Листать вниз
+            </a>
+        </div>
+    </header>
+
+    <!-- ===== ФОТО И ПРИВЕТСТВИЕ ===== -->
+    <section class="container text-center mb-5">
+        <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\praga.jpg" alt="Моё фото" class="profile-photo">
+        <h2 class="mt-4">Привет! Меня зовут Диана</h2>
+        <p class="text-muted mx-auto" style="max-width: 640px;">
+            Этим летом я успела побывать в гостях, увидеть древний Рим
+            и много гулять с подружками. Ниже пару фото про это!
+        </p>
+    </section>
+
+    <!-- ===== СЕКЦИЯ МЕСЯЦЕВ ===== -->
+    <section id="summer" class="container pb-5">
+        <h2 class="text-center mb-5 section-title">Мои три месяца</h2>
+
+        <div class="row g-4">
+            <!-- ИЮНЬ -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="month-card card">
+                    <div class="img-wrap">
+                        <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\kalin.jpg" alt="Июнь — Калинковичи">
+                        <span class="month-badge"><i class="bi bi-calendar-heart"></i> Июнь</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title h5">Поездка в Калинковичи</h3>
+                        <p class="card-text">
+                            В июне я ездила в Калинковичи на день рождения к Александре.
+                            У нас была тёплая компания, вкусный торт и много смеха. Начало лета
+                            получилось по-настоящему душевным.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ИЮЛЬ -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="month-card card">
+                    <div class="img-wrap">
+                        <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\rim.jpg" alt="Июль — Италия, Рим">
+                        <span class="month-badge"><i class="bi bi-airplane"></i> Июль</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title h5">Италия и Рим</h3>
+                        <p class="card-text">
+                            В июле я ездила в Италию и гуляла по Риму. Колизей,
+                            фонтан Треви, узкие улочки и настоящее итальянское мороженое! Я поняла что это
+                            страна, в которую хочется вернуться.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- АВГУСТ -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="month-card card">
+                    <div class="img-wrap">
+                        <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\girls.jpg" alt="Август — прогулки с подружками">
+                        <span class="month-badge"><i class="bi bi-people"></i> Август</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title h5">Прогулки с подружками</h3>
+                        <p class="card-text">
+                            Август я провела с подружками. Мы гуляли по городу, сидели в кафе,
+                            катались на самокатах и наслаждались последними тёплыми
+                            деньками.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ФОТО-ГАЛЕРЕЯ ИЗ ПОЕЗДОК ===== -->
+    <!-- ===== ФОТО-ГАЛЕРЕЯ ИЗ ПОЕЗДОК ===== -->
+<section class="memory-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 section-title">Моменты, которые остались в памяти</h2>
+        <div class="row g-4">
+            <!-- 1 -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\berez.jpg" alt="Момент 1" class="memory-img" style="height: 320px;">
+            </div>
+            <!-- 2 -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\k.jpg" alt="Момент 2" class="memory-img" style="height: 320px;">
+            </div>
+            <!-- 3 -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\gora.jpg" alt="Момент 3" class="memory-img" style="height: 320px;">
+            </div>
+            <!-- 4 -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\bb.jpg" alt="Момент 4" class="memory-img" style="height: 320px;">
+            </div>
+            <!-- 5 -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\ul.jpg" alt="Момент 5" class="memory-img" style="height: 320px;">
+            </div>
+            <!-- 6 -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\dom.jpg" alt="Момент 6" class="memory-img" style="height: 320px;">
+            </div>
+            <!-- 4 -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\ew.jpg" alt="Момент 4" class="memory-img" style="height: 320px;">
+            </div>
+            <!-- 5 -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\kvas.jpg" alt="Момент 5" class="memory-img" style="height: 320px;">
+            </div>
+            <!-- 6 -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img src="C:\Users\Diana\Desktop\4 курс\WT\lab1\kury.jpg" alt="Момент 6" class="memory-img" style="height: 320px;">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== ФУТЕР ===== -->
+    <footer class="text-center py-4">
+        <p class="mb-1">Мой летний дневник</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
